@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MUZAN SIGMA TECH - Plateforme Technologique Avancée</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/main.css">
+    <link rel="stylesheet" href="styles/components.css">
+    <link rel="stylesheet" href="styles/animations.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-brand">
+                <span class="brand-text">MUZAN SIGMA TECH</span>
+            </div>
+            <div class="nav-menu" id="navMenu">
+                <a href="#home" class="nav-link active">Accueil</a>
+                <a href="#quiz" class="nav-link">Quiz</a>
+                <a href="#tutorials" class="nav-link">Tutoriels</a>
+                <a href="#marketplace" class="nav-link">Marketplace</a>
+                <a href="#challenges" class="nav-link">Challenges</a>
+                <a href="#community" class="nav-link">Communauté</a>
+                <a href="#tools" class="nav-link">Outils</a>
+            </div>
+            <div class="nav-actions">
+                <button class="btn-secondary" id="loginBtn">Connexion</button>
+                <button class="btn-primary" id="registerBtn">S'inscrire</button>
+                <button class="nav-toggle" id="navToggle">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-background">
+            <div class="hero-particles"></div>
+        </div>
+        <div class="hero-content">
+            <h1 class="hero-title">
+                Bienvenue dans l'univers
+                <span class="gradient-text">MUZAN SIGMA TECH</span>
+            </h1>
+            <p class="hero-subtitle">
+                Plateforme technologique avancée pour développeurs, hackers éthiques et passionnés de tech
+            </p>
+            <div class="hero-actions">
+                <button class="btn-primary btn-large" id="startQuizBtn">
+                    Commencer le Quiz
+                </button>
+                <button class="btn-secondary btn-large" id="exploreBtn">
+                    Explorer
+                </button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Section -->
+    <section id="quiz" class="section">
+        <div class="container">
+            <h2 class="section-title">Quiz de Découverte</h2>
+            <p class="section-subtitle">Découvrez votre profil tech et obtenez des recommandations personnalisées</p>
+            
+            <div class="quiz-container glass-card" id="quizContainer">
+                <div class="quiz-progress">
+                    <div class="progress-bar">
+                        <div class="progress-fill" id="progressFill"></div>
+                    </div>
+                    <span class="progress-text" id="progressText">Question 1/5</span>
+                </div>
+                
+                <div class="quiz-content" id="quizContent">
+                    <!-- Quiz questions will be loaded here -->
+                </div>
+                
+                <div class="quiz-actions">
+                    <button class="btn-secondary" id="prevBtn" disabled>Précédent</button>
+                    <button class="btn-primary" id="nextBtn">Suivant</button>
+                </div>
+            </div>
+            
+            <div class="quiz-results glass-card" id="quizResults" style="display: none;">
+                <h3>Votre Profil Tech</h3>
+                <div class="profile-result" id="profileResult"></div>
+                <div class="recommendations" id="recommendations"></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tutorials Section -->
+    <section id="tutorials" class="section">
+        <div class="container">
+            <h2 class="section-title">Tutoriels & Formations</h2>
+            <div class="tutorials-filter">
+                <button class="filter-btn active" data-filter="all">Tous</button>
+                <button class="filter-btn" data-filter="beginner">Débutant</button>
+                <button class="filter-btn" data-filter="intermediate">Intermédiaire</button>
+                <button class="filter-btn" data-filter="advanced">Avancé</button>
+                <button class="filter-btn" data-filter="hacking">Hacking Éthique</button>
+            </div>
+            
+            <div class="tutorials-grid" id="tutorialsGrid">
+                <!-- Tutorials will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Marketplace Section -->
+    <section id="marketplace" class="section">
+        <div class="container">
+            <h2 class="section-title">Marketplace</h2>
+            <div class="marketplace-header">
+                <div class="search-container">
+                    <input type="text" class="search-input" placeholder="Rechercher scripts, bots, templates..." id="marketplaceSearch">
+                    <button class="search-btn">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="11" cy="11" r="8"></circle>
+                            <path d="m21 21-4.35-4.35"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div class="marketplace-filters">
+                    <select class="filter-select" id="categoryFilter">
+                        <option value="all">Toutes catégories</option>
+                        <option value="scripts">Scripts</option>
+                        <option value="bots">Bots</option>
+                        <option value="templates">Templates</option>
+                        <option value="tools">Outils</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="marketplace-grid" id="marketplaceGrid">
+                <!-- Marketplace items will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Challenges Section -->
+    <section id="challenges" class="section">
+        <div class="container">
+            <h2 class="section-title">Challenges & Badges</h2>
+            <div class="challenges-stats glass-card">
+                <div class="stat-item">
+                    <span class="stat-number" id="userScore">0</span>
+                    <span class="stat-label">Points</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="userBadges">0</span>
+                    <span class="stat-label">Badges</span>
+                </div>
+                <div class="stat-item">
+                    <span class="stat-number" id="userRank">-</span>
+                    <span class="stat-label">Rang</span>
+                </div>
+            </div>
+            
+            <div class="challenges-grid" id="challengesGrid">
+                <!-- Challenges will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Community Section -->
+    <section id="community" class="section">
+        <div class="container">
+            <h2 class="section-title">Communauté</h2>
+            <div class="community-grid">
+                <div class="community-card glass-card">
+                    <h3>Forum</h3>
+                    <p>Échangez avec la communauté, posez vos questions et partagez vos connaissances</p>
+                    <button class="btn-primary">Accéder au Forum</button>
+                </div>
+                <div class="community-card glass-card">
+                    <h3>Chat Discord</h3>
+                    <p>Rejoignez notre serveur Discord pour des discussions en temps réel</p>
+                    <button class="btn-primary">Rejoindre Discord</button>
+                </div>
+                <div class="community-card glass-card">
+                    <h3>Webinars</h3>
+                    <p>Participez à nos sessions live et webinars exclusifs</p>
+                    <button class="btn-primary">Voir le Calendrier</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Tools Section -->
+    <section id="tools" class="section">
+        <div class="container">
+            <h2 class="section-title">Outils en Ligne</h2>
+            <div class="tools-grid">
+                <div class="tool-card glass-card">
+                    <h3>Générateur de Mots de Passe</h3>
+                    <div class="tool-content">
+                        <div class="password-options">
+                            <label>
+                                <input type="range" id="passwordLength" min="8" max="64" value="16">
+                                <span>Longueur: <span id="lengthValue">16</span></span>
+                            </label>
+                            <label>
+                                <input type="checkbox" id="includeUppercase" checked>
+                                <span>Majuscules</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" id="includeLowercase" checked>
+                                <span>Minuscules</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" id="includeNumbers" checked>
+                                <span>Chiffres</span>
+                            </label>
+                            <label>
+                                <input type="checkbox" id="includeSymbols" checked>
+                                <span>Symboles</span>
+                            </label>
+                        </div>
+                        <div class="password-result">
+                            <input type="text" id="generatedPassword" readonly>
+                            <button class="btn-secondary" id="copyPassword">Copier</button>
+                        </div>
+                        <button class="btn-primary" id="generatePassword">Générer</button>
+                    </div>
+                </div>
+                
+                <div class="tool-card glass-card">
+                    <h3>Analyseur de Sécurité</h3>
+                    <div class="tool-content">
+                        <input type="url" id="urlToAnalyze" placeholder="Entrez une URL à analyser">
+                        <button class="btn-primary" id="analyzeUrl">Analyser</button>
+                        <div class="analysis-result" id="analysisResult"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- News Section -->
+    <section id="news" class="section">
+        <div class="container">
+            <h2 class="section-title">Actualités Tech</h2>
+            <div class="news-grid" id="newsGrid">
+                <!-- News will be loaded here -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <h3>MUZAN SIGMA TECH</h3>
+                    <p>Plateforme technologique avancée pour les passionnés de tech</p>
+                </div>
+                <div class="footer-section">
+                    <h4>Liens Rapides</h4>
+                    <ul>
+                        <li><a href="#tutorials">Tutoriels</a></li>
+                        <li><a href="#marketplace">Marketplace</a></li>
+                        <li><a href="#challenges">Challenges</a></li>
+                        <li><a href="#community">Communauté</a></li>
+                    </ul>
+                </div>
+                <div class="footer-section">
+                    <h4>Support</h4>
+                    <ul>
+                        <li><a href="#faq">FAQ</a></li>
+                        <li><a href="#contact">Contact</a></li>
+                        <li><a href="#help">Aide</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>Développé avec ❤️ par MUZAN SIGMA TECH</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modals -->
+    <div class="modal" id="loginModal">
+        <div class="modal-content glass-card">
+            <span class="modal-close">&times;</span>
+            <h2>Connexion</h2>
+            <form id="loginForm">
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Mot de passe" required>
+                <button type="submit" class="btn-primary">Se connecter</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="modal" id="registerModal">
+        <div class="modal-content glass-card">
+            <span class="modal-close">&times;</span>
+            <h2>Inscription</h2>
+            <form id="registerForm">
+                <input type="text" placeholder="Nom d'utilisateur" required>
+                <input type="email" placeholder="Email" required>
+                <input type="password" placeholder="Mot de passe" required>
+                <button type="submit" class="btn-primary">S'inscrire</button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="js/main.js"></script>
+    <script src="js/quiz.js"></script>
+    <script src="js/marketplace.js"></script>
+    <script src="js/challenges.js"></script>
+    <script src="js/tools.js"></script>
+    <script src="js/auth.js"></script>
+    <script src="js/news.js"></script>
+</body>
+</html>
